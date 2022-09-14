@@ -26,7 +26,7 @@ let blog2 = new Blog({
 });
 
 // Instantiate a Collection
-let blogs = new Blogs([blog1, blog2]);
+let blogs = new Blogs([blog1,blog2]);
 
 // Backbone Views one blog
 
@@ -34,10 +34,11 @@ let BlogView = Backbone.View.extend({
     model : new Blog(),
     tagName : 'tr',
     initialize: function(){
-        this.template = _.template($('.blogs-list-template').html())
+        this.template = _.template($('.blogs-list-template').html());
     },
     render: function(){
-        this.$el.html(this.template(this.model.toJSON()))
+        this.$el.html(this.template(this.model.toJSON()));
+        return this;
     }
 
 });
@@ -47,16 +48,17 @@ let BlogView = Backbone.View.extend({
 
 let BlogsView = Backbone.View.extend({
     model: blogs,
-    el: $('blogs-list'),
+    el: $('.blogs-list'),
     initialize: function(){
         this.model.on('add',this.render,this)
     },
     render: function(){
         let self = this;
         this.$el.html('');
-        _each(this.model.toArray(), function(blog){
-            self.$el.append((new BlogView({model:blog})).render().$el)
-        })
+        _.each(this.model.toArray(), function(blog){
+            self.$el.append((new BlogView({model: blog})).render().$el);
+        });
+        return this;
     }
 
 });
