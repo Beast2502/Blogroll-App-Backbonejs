@@ -49,7 +49,7 @@ let BlogsView = Backbone.View.extend({
     model: blogs,
     el: $('blogs-list'),
     initialize: function(){
-        this.model.on('add',this.render(),this)
+        this.model.on('add',this.render,this)
     },
     render: function(){
         let self = this;
@@ -61,12 +61,18 @@ let BlogsView = Backbone.View.extend({
 
 });
 
+let blogsView = new BlogsView();
+
 $(document).ready(function(){
-    $('add-blog').on('click' ,function(){
+    $('.add-blog').on('click' ,function(){
         let blog = new Blog({
             author: $('.author-input').val(),
-            title
-        })
+            title : $('.title-input').val(),
+            url: $('.url-input').val()
+        });
+        console.log(blog.toJSON());
+        blogs.add(blog);
+
     })
 })
 
