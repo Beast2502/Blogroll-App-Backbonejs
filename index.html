@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Blog Roll App</title>
+    <title>Password Manager App</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -21,15 +21,15 @@
   </head>
   <body>
     <div class="contaner">
-      <h1>Blog Roll App</h1>
+      <h1>Password Manager</h1>
 
       <!-- table.table>thead>tr>th*4 -->
       <table class="table">
         <thead>
           <tr>
-            <th>Author</th>
-            <th>Title</th>
-            <th>URL</th>
+            <th>Source</th>
+            <th>User Name</th>
+            <th>Password</th>
             <th>Action</th>
           </tr>
           <tr>
@@ -49,6 +49,9 @@
       <td>
         <button class='btn btn-warning edit-blog'>Edit</button>
         <button class='btn btn-danger delete-blog'>Delete</button>
+        <button class='btn btn-success update-blog' style='display:none'>Update</button>
+        <button class='btn btn-danger cancel' style='display:none' >Cancel</button>
+
       </td>
     </script>
     <script src="js/lib/jquery-min.js"></script>
